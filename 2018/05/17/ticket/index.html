@@ -284,7 +284,19 @@
 
 
 <script src="/js/script.js"></script>
-
+<script>
+    $("#save2Image").click(function(){
+       // html2canvas($("#content")).then(function(canvas){
+        html2canvas(document.querySelector("#content")).then(function(canvas){
+            //onrendered: function(canvas){
+            var image = canvas.toDataURL("image/png");
+            console.log(image);
+            var pHtml = "<img src="+image+" />";
+            $("body").append(pHtml);
+            // }
+        })
+    })
+</script>
   </div>
 </body>
 </html>
